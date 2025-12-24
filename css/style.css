@@ -1,0 +1,147 @@
+:root {
+    --background-color: #0a0a14;
+    --primary-color: #00f6ff;
+    --secondary-color: #ff00ff;
+    --text-color: #d1d5db;
+    --border-color: rgba(0, 246, 255, 0.2);
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background-image: 
+        linear-gradient(rgba(0, 246, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 246, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: background-pan 10s linear infinite;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+@keyframes background-pan {
+  from { background-position: 0 0; }
+  to { background-position: -200px -200px; }
+}
+
+.font-tech {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.section-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2.25rem; /* text-4xl */
+    margin-bottom: 3rem; /* mb-12 */
+    text-align: center;
+    text-transform: uppercase;
+}
+.nav-link {
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* tracking-wider */
+    color: #cbd5e1; /* text-slate-300 */
+    transition: all 0.3s;
+    text-shadow: 0 0 2px transparent;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.project-card {
+    background-color: rgba(15, 23, 42, 0.5); /* slate-900/50 */
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 246, 255, 0.3);
+}
+
+.project-card-image {
+     width: 100%;
+     height: 200px;
+     object-fit: cover;
+     filter: grayscale(50%) contrast(1.2);
+     opacity: 0.8;
+     transition: all 0.3s ease;
+}
+.project-card:hover .project-card-image {
+    filter: grayscale(0%) contrast(1);
+    opacity: 1;
+}
+.neon-button {
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* tracking-wider */
+    font-weight: bold;
+    padding-left: 2rem; 
+    padding-right: 2rem;
+    padding-top: 0.75rem; 
+    padding-bottom: 0.75rem; 
+    transition: all 0.3s;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    box-shadow: inset 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+}
+
+.neon-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-shadow: none;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    left: -0.4rem;
+    border: 2px solid var(--primary-color);
+    background-color: var(--background-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.glitch {
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75);
+    animation: glitch 500ms infinite;
+}
+
+@keyframes glitch{
+  0% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.05em -0.025em 0 rgba(0,255,0,.75), -0.025em 0.05em 0 rgba(0,0,255,.75); }
+  14% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.05em -0.025em 0 rgba(0,255,0,.75), -0.025em 0.05em 0 rgba(0,0,255,.75); }
+  15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
+  49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
+  50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75); }
+  99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75); }
+  100% { text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75); }
+}
+
+.profile-image {
+    object-fit: cover;
+    filter: contrast(1.2) brightness(1.1);
+}
